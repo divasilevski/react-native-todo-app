@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { AddTodo } from './src/AddTodo';
 import { Navbar } from './src/Navbar';
+import { Todo } from './src/Todo';
 
 
 export default function App() {
@@ -19,7 +20,9 @@ export default function App() {
         <AddTodo onSubmit={addTodo} />
 
         <View>
-          <Text>{JSON.stringify(todos)}</Text>
+          {todos.map(todo => (
+            <Todo todo={todo} key={todo.id} />
+          ))}
         </View>
       </View>
     </View>

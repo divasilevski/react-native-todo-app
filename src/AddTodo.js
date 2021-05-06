@@ -17,6 +17,7 @@ export const AddTodo = ({ onSubmit }) => {
 const styles = StyleSheet.create({
   block: {
     flexDirection: 'row',
+    marginBottom: 15
   },
   input: {
     flex: 1,
