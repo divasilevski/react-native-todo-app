@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
-import { StyleSheet, TextInput, View, Button, Alert } from 'react-native'
-import { THEME } from '../theme'
+import React, { useState } from "react";
+import { StyleSheet, TextInput, View, Button, Alert } from "react-native";
+import { THEME } from "../theme";
+import { AntDesign } from "@expo/vector-icons";
 
 export const AddTodo = ({ onSubmit }) => {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("");
 
   const pressHandler = () => {
     if (value.trim()) {
-      onSubmit(value)
-      setValue('')
+      onSubmit(value);
+      setValue("");
     } else {
-      Alert.alert('Название дела не может быть пустым!')
+      Alert.alert("Название дела не может быть пустым!");
     }
-  }
+  };
 
   return (
     <View style={styles.block}>
@@ -24,21 +25,23 @@ export const AddTodo = ({ onSubmit }) => {
         autoCorrect={false}
         autoCapitalize="none"
       />
-      <Button title="Добавить" onPress={pressHandler} />
+      <AntDesign.Button onPress={pressHandler} name="plus">
+        Добавить
+      </AntDesign.Button>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   block: {
-    flexDirection: 'row',
-    marginBottom: 15
+    flexDirection: "row",
+    marginBottom: 15,
   },
   input: {
     flex: 1,
-    borderStyle: 'solid',
+    borderStyle: "solid",
     borderBottomWidth: 2,
     borderBottomColor: THEME.MAIN_COLOR,
-    marginRight: 15
+    marginRight: 15,
   },
-})
+});

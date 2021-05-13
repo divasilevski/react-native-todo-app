@@ -8,8 +8,9 @@ import {
   Alert,
 } from "react-native";
 import { THEME } from "../theme";
+import { AppButton } from "./ui/AppButton";
 
-export const EditModal = ({ visible, onCancel, value, onSave }) => {
+export const EditModal = ({ visible, onCancel, value, onS }) => {
   const [title, setTitle] = useState(value);
 
   const saveHandler = () => {
@@ -39,14 +40,12 @@ export const EditModal = ({ visible, onCancel, value, onSave }) => {
         />
         <View style={styles.buttons}>
           <View style={styles.button}>
-            <Button
-              title="Отменить"
-              onPress={onCancel}
-              color={THEME.DANGER_COLOR}
-            />
+            <AppButton onPress={onCancel} color={THEME.DANGER_COLOR}>
+              Отменить
+            </AppButton>
           </View>
           <View style={styles.button}>
-            <Button title="Сохранить" onPress={saveHandler} />
+            <AppButton onPress={saveHandler}>Сохранить</AppButton>
           </View>
         </View>
       </View>
