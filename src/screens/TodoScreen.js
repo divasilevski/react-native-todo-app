@@ -10,8 +10,8 @@ import { FontAwesome, AntDesign } from "@expo/vector-icons";
 export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
   const [modal, setModal] = useState(false);
 
-  const saveHandler = (title) => {
-    onSave(todo.id, title);
+  const saveHandler = async (title) => {
+    await onSave(todo.id, title);
     setModal(false);
   };
 

@@ -1,7 +1,7 @@
 const handlers = {
-  ADD_TODO: (state, action) => ({
+  ADD_TODO: (state, { id, title }) => ({
     ...state,
-    todos: [...state.todos, { id: Date.now().toString(), title: action.title }],
+    todos: [...state.todos, { id, title }],
   }),
   REMOVE_TODO: (state, action) => ({
     ...state,
@@ -16,6 +16,13 @@ const handlers = {
       return todo;
     }),
   }),
+
+  FETCH_TODOS: (state, { todos }) => ({ ...state, todos }),
+  SHOW_LOADER: (state) => ({ ...state, loading: true }),
+  HIDE_LOADER: (state) => ({ ...state, loading: false }),
+  SHOW_ERROR: (state, { error }) => ({ ...state, error }),
+  CLEAR_ERROR: (state) => ({ ...state, error: null }),
+
   DEFAULT: (state) => state,
 };
 
