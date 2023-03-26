@@ -22,9 +22,14 @@ export const TodoState = ({ children }) => {
       });
 
       const data = await response.json();
-      const todos = Object.keys(data).map((key) => ({ ...data[key], id: key }));
 
-      dispatch({ type: "FETCH_TODOS", todos: todos });
+      if (data) {
+        const todos = Object.keys(data).map((key) => ({
+          ...data[key],
+          id: key,
+        }));
+        dispatch({ type: "FETCH_TODOS", todos: todos });
+      }
     } catch (e) {
       showError("Что то пошло не так...");
     } finally {
