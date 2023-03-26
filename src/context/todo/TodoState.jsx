@@ -1,11 +1,11 @@
 import React, { useContext, useReducer } from "react";
 import { Alert } from "react-native";
+import { FIREBASE_DATABASE_URL } from "@env";
 import { TodoContext } from "./todoContext";
 import { todoReducer } from "./todoReducer";
 import { ScreenContext } from "../screen/screenContext";
 
-const URL =
-  "https://todo-native-base-default-rtdb.europe-west1.firebasedatabase.app";
+const URL = FIREBASE_DATABASE_URL;
 
 export const TodoState = ({ children }) => {
   const initState = { todos: [], loading: false, error: null };
