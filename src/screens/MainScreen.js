@@ -26,10 +26,9 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
         Dimensions.get("window").width - THEME.PADDING_HORIZONTAL * 2;
       setDeviceWidth(width);
     };
-    Dimensions.addEventListener("change", update);
-    return () => {
-      Dimensions.removeEventListener("change", update);
-    };
+    const listener = Dimensions.addEventListener("change", update);
+
+    return listener.remove;
   });
 
   if (loading) {
